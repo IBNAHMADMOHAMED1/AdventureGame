@@ -23,8 +23,8 @@ public class AdventureGame {
         PlayGameUseCase playGameUseCase = new PlayGameUseCase(characterGateway);
 
         try {
-            int initialX = 6;
-            int initialY = 9;
+            int initialX = 3;
+            int initialY = 0;
             loadGameUseCase.execute(initialX, initialY);
             MovementDirection[] directions = readDirectionsFromFile("cart.txt");
             playGameUseCase.execute(directions);

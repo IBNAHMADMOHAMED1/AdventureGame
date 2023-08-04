@@ -3,17 +3,51 @@ package com.goanddev.game;
 import com.goanddev.game.Entity.GameCharacter;
 import com.goanddev.game.Entity.GameMap;
 import com.goanddev.game.Entity.MovementDirection;
-import com.goanddev.game.exceptions.MovementBlockedException;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
 public class AdventureGameTest {
 
-    @Test
-    public void testPremierTest() {
+    private char[][] getMapData() {
+        String mapString = "###    ######    ###\n" +
+                "###      ##      ###\n" +
+                "##     ##  ##     ##\n" +
+                "#      ##  ##      #\n" +
+                "##                ##\n" +
+                "#####          #####\n" +
+                "###### ##  ##  #####\n" +
+                " #     ######     # \n" +
+                "     ########       \n" +
+                "    ############    \n" +
+                "    ############    \n" +
+                "     ########      #\n" +
+                " #     ######     ##\n" +
+                "###### ##  ## ######\n" +
+                "#####          #####\n" +
+                "##                ##\n" +
+                "#   ## #    # ##   #\n" +
+                "##   ##      ##   ##\n" +
+                "###    #    #    ###\n" +
+                "###    ######    ###";
 
+        String[] lines = mapString.split("\n");
+        char[][] mapData = new char[lines.length][lines[0].length()];
+
+        for (int i = 0; i < lines.length; i++) {
+            mapData[i] = lines[i].toCharArray();
+        }
+
+        return mapData;
+    }
+
+    @Test
+    public void shouldEndAt_9_2WhenStartingAt_3_0() {
         char[][] mapData = getMapData();
         GameMap map = new GameMap(mapData);
 
@@ -27,59 +61,31 @@ public class AdventureGameTest {
         };
 
         for (MovementDirection movement : movements) {
-            try {
-                character.move(movement);
-            } catch (MovementBlockedException e) {
-            }
+            character.move(movement);
         }
 
         assertEquals("(9,2)", character.getPosition());
     }
 
     @Test
-    public void testDeuxiemeTest() {
+    public void shouldEndAt_7_5WhenStartingAt_6_9() {
         char[][] mapData = getMapData();
         GameMap map = new GameMap(mapData);
+
         GameCharacter character = new GameCharacter(6, 9, map);
+
         MovementDirection[] movements = {
                 MovementDirection.O, MovementDirection.O, MovementDirection.N, MovementDirection.O, MovementDirection.O,
                 MovementDirection.O, MovementDirection.S, MovementDirection.S, MovementDirection.O
         };
 
         for (MovementDirection movement : movements) {
-            try {
-                character.move(movement);
-            } catch (MovementBlockedException e) {
-            }
+            character.move(movement);
         }
 
         assertEquals("(7,5)", character.getPosition());
     }
 
-    private char[][] getMapData() {
-        char[][] mapData = {
-                "###    ######    ###".toCharArray(),
-                "###      ##      ###".toCharArray(),
-                "##     ##  ##     ##".toCharArray(),
-                "#      ##  ##      #".toCharArray(),
-                "##                ##".toCharArray(),
-                "#####          #####".toCharArray(),
-                "###### ##  ##  #####".toCharArray(),
-                " #     ######     # ".toCharArray(),
-                "     ########       ".toCharArray(),
-                "    ############    ".toCharArray(),
-                "    ############    ".toCharArray(),
-                "     ########      #".toCharArray(),
-                " #     ######     ##".toCharArray(),
-                "###### ##  ## ######".toCharArray(),
-                "#####          #####".toCharArray(),
-                "##                ##".toCharArray(),
-                "#   ## #    # ##   #".toCharArray(),
-                "##   ##      ##   ##".toCharArray(),
-                "###    #    #    ###".toCharArray(),
-                "###    ######    ###".toCharArray()
-        };
-        return mapData;
-    }
+
 }
 
