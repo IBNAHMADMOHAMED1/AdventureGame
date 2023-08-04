@@ -10,34 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import static org.junit.Assert.assertEquals;
 
 public class AdventureGameTest {
-    private GameMap map;
-
-    @BeforeEach
-    public void setUp() {
-        char[][] mapData = {
-                "###    ######    ###".toCharArray(),
-                "###      ##      ###".toCharArray(),
-                "##     ##  ##     ##".toCharArray(),
-                "#      ##  ##      #".toCharArray(),
-                "##                ##".toCharArray(),
-                "#####          #####".toCharArray(),
-                "###### ##  ##  #####".toCharArray(),
-                " #     ######     # ".toCharArray(),
-                "     ########       ".toCharArray(),
-                "    ############    ".toCharArray(),
-                "    ############    ".toCharArray(),
-                "     ########      #".toCharArray(),
-                " #     ######     ##".toCharArray(),
-                "###### ##  ## ######".toCharArray(),
-                "#####          #####".toCharArray(),
-                "##                ##".toCharArray(),
-                "#   ## #    # ##   #".toCharArray(),
-                "##   ##      ##   ##".toCharArray(),
-                "###    #    #    ###".toCharArray(),
-                "###    ######    ###".toCharArray()
-        };
-
-    }
 
     @Test
     public void testPremierTest() {
@@ -78,14 +50,12 @@ public class AdventureGameTest {
             try {
                 character.move(movement);
             } catch (MovementBlockedException e) {
-                // Handle movement blocked exception if needed
             }
         }
 
         assertEquals("(7,5)", character.getPosition());
     }
 
-    // function for Map is not initialized.
     private char[][] getMapData() {
         char[][] mapData = {
                 "###    ######    ###".toCharArray(),

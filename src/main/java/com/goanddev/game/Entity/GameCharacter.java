@@ -14,7 +14,6 @@ public class GameCharacter {
         this.gameMap = gameMap;
     }
 
-
         public void move(MovementDirection direction) {
             int newX = x;
             int newY = y;
