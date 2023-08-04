@@ -55,8 +55,8 @@ public class AdventureGameTest {
 
         MovementDirection[] movements = {
                 MovementDirection.S, MovementDirection.S, MovementDirection.S, MovementDirection.S,
-                MovementDirection.E, MovementDirection.E, MovementDirection.E, MovementDirection.E,
-                MovementDirection.E, MovementDirection.E, MovementDirection.E, MovementDirection.E,
+                MovementDirection.E, MovementDirection.E, MovementDirection.E,
+                MovementDirection.E, MovementDirection.E, MovementDirection.E,
                 MovementDirection.N, MovementDirection.N
         };
 
@@ -73,10 +73,13 @@ public class AdventureGameTest {
         GameMap map = new GameMap(mapData);
 
         GameCharacter character = new GameCharacter(6, 9, map);
-
+// OONOOOSSO
         MovementDirection[] movements = {
-                MovementDirection.O, MovementDirection.O, MovementDirection.N, MovementDirection.O, MovementDirection.O,
-                MovementDirection.O, MovementDirection.S, MovementDirection.S, MovementDirection.O
+                MovementDirection.O, MovementDirection.O,
+                MovementDirection.N, MovementDirection.O,
+                MovementDirection.O, MovementDirection.O,
+                MovementDirection.S, MovementDirection.S,
+                MovementDirection.O
         };
 
         for (MovementDirection movement : movements) {

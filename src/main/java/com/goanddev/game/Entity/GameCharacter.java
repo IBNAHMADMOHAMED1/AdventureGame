@@ -14,19 +14,23 @@ public class GameCharacter {
         this.gameMap = gameMap;
     }
 
-        public void move(MovementDirection direction) {
+        public void move(MovementDirection direction)  {
             int newX = x;
             int newY = y;
 
+            // given (6,9)
+            //: Expected :(7,5)
+            //Actual   :(0,10) and we have OONOOOSSO , so should x add 1 and y reduce 4 for being (7,5)
             if (direction == MovementDirection.N) {
-                newX--;
-            } else if (direction == MovementDirection.S) {
-                newX++;
-            } else if (direction == MovementDirection.E) {
-                newY++;
-            } else if (direction == MovementDirection.O) {
                 newY--;
+            } else if (direction == MovementDirection.S) {
+                newY++;
+            } else if (direction == MovementDirection.E) {
+                newX++;
+            } else if (direction == MovementDirection.O) {
+                newX--;
             }
+
 
             if (gameMap.isAccessible(newX, newY)) {
                 x = newX;

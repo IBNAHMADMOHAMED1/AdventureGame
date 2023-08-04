@@ -8,11 +8,8 @@ public class GameMap {
     }
 
     public boolean isAccessible(int x, int y) {
-        System.out.println("x: " + x + " y: " + y + " mapData.length: " + mapData.length + " mapData[0].length: " + mapData[0].length);
-
-        if (x < 0 || y < 0 || x >= mapData.length || y >= mapData[0].length) {
-            System.out.println("false");
-            return false; // Outside of map bounds
+        if (x < 0 || y < 0 || x >= mapData[0].length || y >= mapData.length) {
+            return false;
         }
         return true;
     }
